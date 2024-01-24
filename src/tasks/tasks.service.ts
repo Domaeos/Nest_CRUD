@@ -21,8 +21,8 @@ export class TasksService {
     return this.tasks;
   }
 
-  getTaskById(id: number) {
-    return this.tasks.find((x) => x.id === id);
+  getTaskById(id: number): Task {
+    return this.tasks.find((x) => x.id === +id);
   }
 
   updateTaskStatus(id: number, status: 'OPEN' | 'DONE'): Task {
@@ -34,6 +34,6 @@ export class TasksService {
   }
 
   deleteTask(id: number) {
-    this.tasks = this.tasks.filter((x) => x.id !== id);
+    this.tasks = this.tasks.filter((x) => x.id !== +id);
   }
 }
